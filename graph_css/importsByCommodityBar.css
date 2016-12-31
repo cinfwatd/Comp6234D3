@@ -1,0 +1,29 @@
+.importsByCommodityBar .legend {
+  fill: black;
+  font: 14px;
+  text-anchor: start;
+  font-size: 12px;
+}
+
+.importsByCommodityBar text {
+  fill: black;
+  font: 10px;
+  text-anchor: end;
+}
+
+.importsByCommodityBar .label {
+  fill: black;
+  font: 14px;
+  text-anchor: end;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
