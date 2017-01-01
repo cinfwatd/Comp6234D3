@@ -147,7 +147,7 @@ d3.csv("uk_gdp_group_full.csv", function(d, i, columns) {
         .attr("font-size", 10)
         .attr("text-anchor", "end")
         .selectAll("g")
-        .data(keys.slice().reverse())
+        .data(keys.slice())
         .enter().append("g")
         .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
