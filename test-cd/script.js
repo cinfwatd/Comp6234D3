@@ -142,24 +142,46 @@ d3.csv("uk_gdp_group_full.csv", function(d, i, columns) {
         .attr("transform", "translate(0," + y(0) + ")")
         .call(d3.axisTop(center).ticks(0));
 
-    var legend = g.append("g")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", 10)
-        .attr("text-anchor", "end")
-        .selectAll("g")
-        .data(keys.slice())
+    // var legend = g.append("g")
+    //     .attr("font-family", "sans-serif")
+    //     .attr("font-size", 10)
+    //     .attr("text-anchor", "end")
+    //     .selectAll("g")
+    //     .data(keys.slice())
+    //     .enter().append("g")
+    //     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+    //
+    // legend.append("rect")
+    //     .attr("x", width - 19)
+    //     .attr("width", 19)
+    //     .attr("height", 19)
+    //     .attr("fill", colors);
+    //
+    // legend.append("text")
+    //     .attr("x", width - 24)
+    //     .attr("y", 9.5)
+    //     .attr("dy", "0.32em")
+    //     .text(function(d) { return d; });
+
+
+    var legend = svg.selectAll(".legend")
+        .data(colors.domain())
         .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("class", "legend");
+    //.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
     legend.append("rect")
-        .attr("x", width - 19)
-        .attr("width", 19)
-        .attr("height", 19)
-        .attr("fill", colors);
+        .attr("x", 675)
+        .attr("y", function(d, i) { return i * 20 + 300 })
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", colors );
 
     legend.append("text")
-        .attr("x", width - 24)
-        .attr("y", 9.5)
-        .attr("dy", "0.32em")
+        .attr("x", 700)
+        .attr("y", function(d, i) { return i * 20 + 309; })
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
         .text(function(d) { return d; });
+
 });
