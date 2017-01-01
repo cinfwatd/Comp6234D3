@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Patua+One');
+.footer {
+    padding-top: 19px;
+    /*color: #777777;*/
+    border-top: 1px solid #e5e5e5;
+    font-family: 'Inconsolata', monospace;
+    margin-top: 10px;
+}
+
+.lead {
+    font-family: 'Inconsolata', monospace;
+}
+
+.page-header {
+    font-family: 'Patua One', cursive;
+    color: #000000;
+}
+#chart3 .bar {
+    fill: steelblue;
+}
+
+#chart3 .bar:hover {
+    fill: brown;
+}
+
+#chart3 .axis--x path {
+    display: none;
+}
