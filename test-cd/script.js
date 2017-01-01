@@ -90,7 +90,7 @@ var center = d3.scaleLinear()
     .range([0, width]);
 
 
-d3.csv("uk_gdp_group.csv", function(d, i, columns) {
+d3.csv("uk_gdp_group_full.csv", function(d, i, columns) {
     for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]] / 100;
     return d;
 }, function(error, data) {
@@ -112,9 +112,12 @@ d3.csv("uk_gdp_group.csv", function(d, i, columns) {
         .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
         .enter().append("rect")
         .attr("x", function(d) { return x1(d.key); })
-        .attr("y", function(d) { return y(d.value); })
+        .attr("y", function(d) { return y(Math.max(0, d.value)); })
         .attr("width", x1.bandwidth())
-        .attr("height", function(d) { return height - y(d.value); })
+        .attr("height", function(d) {
+            // return height - y(d.value);
+            return Math.abs(y(d.value) - y(0))
+        })
         .attr("fill", function(d) { return colors(d.key); });
 
     g.append("g")
@@ -133,6 +136,11 @@ d3.csv("uk_gdp_group.csv", function(d, i, columns) {
         .attr("font-weight", "bold")
         .attr("text-anchor", "start")
         .text("Percentage");
+
+    g.append("g")
+        .attr("class", "centerline")
+        .attr("transform", "translate(0," + y(0) + ")")
+        .call(d3.axisTop(center).ticks(0));
 
     var legend = g.append("g")
         .attr("font-family", "sans-serif")
