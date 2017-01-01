@@ -89,6 +89,9 @@ var colors = d3.scaleOrdinal()
 var center = d3.scaleLinear()
     .range([0, width]);
 
+var tooltip_div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 d3.csv("uk_gdp_group_full.csv", function(d, i, columns) {
     for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]] / 100;
@@ -118,7 +121,29 @@ d3.csv("uk_gdp_group_full.csv", function(d, i, columns) {
             // return height - y(d.value);
             return Math.abs(y(d.value) - y(0))
         })
-        .attr("fill", function(d) { return colors(d.key); });
+        .attr("fill", function(d) { return colors(d.key); })
+
+        .on('mouseover', function(d){
+            d3.select(this)
+                .style("opacity", 0.6)
+                .style("stroke", "#E3E3E3");
+
+            var formatPercent = d3.format(".1%");
+            var info = tooltip_div
+                .style("opacity", 1)
+                .style("left", (d3.event.pageX-50) + "px")
+                .style("top", (d3.event.pageY-60) + "px")
+                .text(d.key);
+            info.append("p").text(formatPercent(d.value));
+        })
+        .on('mouseout', function(d){
+            d3.select(this)
+                .style('stroke-opacity', 0.5)
+                .style('stroke', 'white')
+                .style("opacity",1);
+
+            tooltip_div.style("opacity", 0);
+        });
 
     g.append("g")
         .attr("class", "axis")
