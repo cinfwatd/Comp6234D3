@@ -14,3 +14,5 @@ Add chart css files to graph_css folder
 If you need to add image use img folder
 
 Do not add or change any other folder or js file
+
+Running index.html runs the website, we dont need a backend since we just focus on the frontend.
