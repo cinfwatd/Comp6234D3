@@ -7,12 +7,17 @@ Brexit data narrative using D3.js
 + Chen Yen <ytc1g12>
 + Cinfwat Dogak <dzc1n15>
 
-Every section is marked with a comment like <!-- Currency Section --> and you should add the HTML code where it says : "Currency stuff goes here"
+In index.html every section is marked with a comment like <!-- Currency Section --> and you should add the HTML and/or JS code where it says : "Currency stuff goes here"
 
 Add your charts JS files to graphs_js folder
 Add chart css files to graph_css folder
 If you need to add image use img folder
 
-Do not add or change any other folder or js file
+js and css folders contains libraries used by website/charts. Do not add your chart codes there so that we can separate our charts from libraries.
+
+Refrain from using generic names. E.g: dont use style.css for your css file. 
 
 Running index.html runs the website, we dont need a backend since we just focus on the frontend.
+
+
+Cheers <3
