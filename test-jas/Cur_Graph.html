@@ -6,7 +6,7 @@
 	<meta charset="utf-8"> 
 
 	<style> 
-		body {font: 12px Arial;} 
+		body {font: 13px Arial;} 
 
 		path { 
 		    stroke: black;
@@ -27,7 +27,7 @@
 </head>
 <body>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<p>Currency - GBP to USD</p>
+	<p> Currency - GBP to USD</p>
 	<script>
 		var margin = {top: 30, right: 50, bottom: 30, left: 50},
 	    width = 1250 - margin.left - margin.right,
@@ -132,6 +132,37 @@
             	.attr("transform", "translate(" + (width + margin.right) +","+(height/2)+")rotate(-90)")  
             	.text("Growth Rate");
 
+            // Add legend
+
+//           	var legend = svg.append("g")
+//	 			.attr("class", "legend")
+//	 			.attr("x", w - 65)
+//	 			.attr("y", 25)
+//	 			.attr("height", 100)
+//	 			.attr("width", 100);
+//
+//			legend.selectAll('g').data(dataset)
+//    		  	.enter()
+//    		  	.append('g')
+//    		  	.each(function(d, i) {
+//    		  	  var g = d3.select(this);
+//    		  	  g.append("rect")
+//    		  	    .attr("x", w - 65)
+//    		  	    .attr("y", i*25)
+//    		  	    .attr("width", 10)
+//    		  	    .attr("height", 10)
+//    		  	    .style("fill", color_hash[String(i)][1]);
+//    		  	  
+//    		  	  g.append("text")
+//    		  	    .attr("x", w - 50)
+//    		  	    .attr("y", i * 25 + 8)
+//    		  	    .attr("height",30)
+//    		  	    .attr("width",100)
+//    		  	    .style("fill", color_hash[String(i)][1])
+//    		  	    .text(color_hash[String(i)][0]);
+//			
+//    		  });
+//
 
 		   var brexit = parseDate("23/06/2016");
 
