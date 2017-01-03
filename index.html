@@ -1,48 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Comp6234 - Group 1</title>
+    <title>Brexit Aftermath</title>
+    <meta name="description" content="Brexit Aftermath">
+    <meta name="keywords" content="Brexit Aftermath">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.2.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
 
+    <!-- Slider
+    ================================================== -->
+    <link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+    <link href="css/owl.theme.css" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="css/Webstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 
-    <!-- D3 -->
-    <link href="css/nv.d3.css" rel="stylesheet" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
-    <script src="js/nv.d3.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="page-header text-center">
-            <h1>The Case for Brexit.</h1>
-            <p class="lead">Trade - import and export recovery from Brexit shock!</p>
+    <!-- Off Canvas Navigation
+    ================================================== -->
+    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas"> <!--- Off Canvas Side Menu -->
+        <div class="close" data-toggle="offcanvas" data-target=".navmenu">
+            <span class="fa fa-close"></span>
         </div>
+        <div class="add-margin"></div>
+        <ul class="nav navmenu-nav"> <!--- Menu -->
+            <li><a href="#home" class="page-scroll">Home</a></li>
+            <li><a href="#currency" class="page-scroll">Currency</a></li>
+            <li><a href="#importexport" class="page-scroll">Import & Export</a></li>
+            <li><a href="#gdp" class="page-scroll">GDP</a></li>
+            <li><a href="#expenditure" class="page-scroll">Expenditure</a></li>
+        </ul><!--- End Menu -->
+    </div> <!--- End Off Canvas Side Menu -->
 
-        <div id="chart-container" class="row text-center">
-            howdy
+    <!-- Home Section -->
+    <div id="home">
+        <div class="container text-center">
+            <!-- Navigation -->
+            <nav id="menu" data-toggle="offcanvas" data-target=".navmenu">
+                <span class="fa fa-bars"></span>
+            </nav>
+
+            <div class="content">
+			<div class="section-title">
+                        <h2>Aftermath of Brexit</h2>
+                        <hr>
+						<p>A comprehensive analysis of Brexit aftermath on financial sector with statistical data</p>
+                    
+            </div>
+            </div>
+			
         </div>
+    </div>
 
-        <footer class="footer text-center">
-            <p>&copy; 2016 Comp6243 | Group 1</p>
-        </footer>
-    </div> <!-- /container -->
+    <!-- Currency Section -->
+    <div id="currency">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="section-title">
+                        <h2>Currency</h2>
+                        <hr>
+                    </div>
+                    <p>Currency stuff goes here</p>
+                </div>
+            </div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+            <div class="space"></div>
+			<div class="space"></div>
+			<div class="space"></div>
+			<div class="space"></div>
+			<div class="space"></div>
+			
+            
+        </div>
+    </div>
 
-    <div id="chart1"></div>
-    <div id="chart2"></div>
-</body>
+    <!-- Import & Export Section -->
+    <div id="importexport">
+        <div class="container text-center">
+            <div class="row">
+                    <div class="section-title">
+                        <h2>Import & Export</h2>
+                        <hr>
+						<!-- Subtitle one: Imported Commodities -->
+						<h3>Subtitle One</h3>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						<div class="space"></div>
+						
+						<!-- Chart headers -->
+						<div class='container' align="center" >
+						<h3 style ="float:left; display: inline-block; padding-left:12em ">UK Exports By Commodity</h3> 
+						<h3 style ="float:middle; display: inline-block; padding-left:12em">UK Imports By Commodity</h3>
+						</div>
+						
+						<div class='container' >
+							<svg class="exportsByCommodityBar" style ="float:left; display: inline-block;"></svg>
+							<svg class="importsByCommodityBar" style ="float:left; display: inline-block;"></svg>
+						</div>
+						<!-- Exports by Commodity Js ref-->
+						<script type="text/javascript" src="graphs_js/exportsByCommodityBar.js"></script>
+						<link rel="stylesheet" type="text/css"  href="graph_css/exportsByCommodityBar.css">
+						<!-- Imports by Commodity Js ref-->
+						<script type="text/javascript" src="graphs_js/importsByCommodityBar.js"></script>
+						<link rel="stylesheet" type="text/css"  href="graph_css/importsByCommodityBar.css">
+						<!-- Subtitle one ends -->
+						
+						
+						<!-- Subtitle two: By Country Import/Exports -->
+						<div class="space"></div>
+						<h3>Subtitle Two</h3>
+						<input type="radio" name="d" id="import" checked><label> Import </label>
+						<input type="radio" name="d"  id="hideBack"><label> Export </label>
+						<div class="space"></div>
+						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						<!-- Map, Imports by Country -->
+						<script src="http://d3js.org/topojson.v1.min.js"></script>
+						<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+						
+						
+						<h3>Chart Header For Map</h3>
+						<div id="exportMap" style="position: relative; width: 850px; height: 500px max-height: px;"></div>
+						<div id="importMap" style="position: relative; width: 850px; height: 500px max-height: px;"></div>
+						
+						<script src="graphs_js/importMap.js"></script>
+						<script src="graphs_js/exportMap.js"></script>
+						
+						<!-- Import Export visibility css -->
+						<style>
+						.hoverinfo { fill: black; font: 18px sans-serif; border-style: solid;} 
+						#import:not(:checked) ~ #exportMap{visibility: visible; display:block; } 
+						#import:not(:checked) ~ #importMap{visibility: hidden; display:none;}
+						#import:checked ~ #exportMap{visibility: hidden; display:none;} 
+						#import:checked ~ #importMap{visibility: visible; display:block;}
+						</style>
+						<!-- Subtitle two ends -->
+						
+                    </div>
+            </div>
+
+            <div class="space"></div>
+			<div class="space"></div>
+			<!--
+            <a href="#gdp" class="down-btn page-scroll">
+                <span class="fa fa-angle-down"></span>
+            </a>-->
+        </div>
+    </div>
+
+    <!-- GDP Section -->
+    <div id="gdp">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="section-title">
+                        <h2>GDP</h2>
+                        <hr>
+                    </div>
+                    <p>GDP stuff and text goes here.</p>
+                </div>
+            </div>
+            <div class="space"></div>
+        </div>
+		<div class="space"></div>
+		<div class="space"></div>
+		<div class="space"></div>
+		<div class="space"></div>
+        <div class="space"></div>
+		
+        <div class="text-center">
+                
+            </div>
+    </div>
+
+    
+    <!-- Expenditure -->
+    <div id="expenditure">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="section-title">
+                        <h2>Expenditure</h2>
+                        <hr>
+                    </div>
+                    <p>Expenditure stuff and text goes here.</p>
+                </div>
+            </div>
+           <div class="space"></div>
+           <div class="space"></div>
+		   <div class="space"></div>
+		   <div class="space"></div>
+		   <div class="space"></div>
+        </div>
+    </div>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/SmoothScroll.js"></script>
+    <script type="text/javascript" src="js/jasny-bootstrap.min.js"></script>
+
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/typed.js"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+  </body>
 </html>

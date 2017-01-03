@@ -7,9 +7,12 @@ Brexit data narrative using D3.js
 + Chen Yen <ytc1g12>
 + Cinfwat Dogak <dzc1n15>
 
-## How to run the app.
-1. Make sure you have **Node.js**, **npm**, and **Bower** installed.
-2. Use `npm install http-server -g` to do a global install of a simple Node.js web server.
-3. Run `bower install` from the app directory. This will install all app dependencies.
-4. Run `http-server` from the app directory to serve the files using the earlier installed web server. If there's any port-related issues, use `http-server -p 8080` and replace `8080` with a different port number as `8080` is the default.
-5. Point your browser to the url and port specified. This is usually `http://localhost:8080`
+Every section is marked with a comment like <!-- Currency Section --> and you should add the HTML code where it says : "Currency stuff goes here"
+
+Add your charts JS files to graphs_js folder
+Add chart css files to graph_css folder
+If you need to add image use img folder
+
+Do not add or change any other folder or js file
+
+Running index.html runs the website, we dont need a backend since we just focus on the frontend.
