@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<meta name="description" content="Data Viz Group 1"/>
 	<meta charset="utf-8"> 
 
-	<style> /* set the CSS */
-
-		body {font: 12px Arial;}
+	<style> 
+		body {font: 12px Arial;} 
 
 		path { 
-		    stroke: steelblue;
+		    stroke: black;
 		    stroke-width: 1;
 		    fill: none;
 		}
@@ -22,15 +22,15 @@
 		    shape-rendering: crispEdges;
 		}
 
- 	</style>
+	</style>
 
 </head>
 <body>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<p>Currency - GBP to USD</p>
 	<script>
-		var margin = {top: 30, right: 20, bottom: 30, left: 50},
-	    width = 1000 - margin.left - margin.right,
+		var margin = {top: 30, right: 50, bottom: 30, left: 50},
+	    width = 1250 - margin.left - margin.right,
 	    height = 750 - margin.top - margin.bottom;
 
 		// Parse the date / time
@@ -49,11 +49,11 @@
 
 		var yAxis = d3.svg.axis()
 			.scale(y)
-		    .orient("left").ticks(5);
+		    .orient("left").ticks(10);
 
 		var yAxis2 = d3.svg.axis()
 		    .scale(y2)
-		    .orient("right").ticks(5);
+		    .orient("right").ticks(8);
 
 		// Define the line
 		var valueline = d3.svg.line()
@@ -89,6 +89,7 @@
 	    	y.domain([0 , d3.max(data, function(d) { return Math.max(d.exchange);})]);
 	    	y2.domain([-0.08, 0.08]); //hard coded second y-axis	domain
 
+
 		    // Add the valueline path.
 		    svg.append("path")
 		        .attr("class", "line")
@@ -97,8 +98,9 @@
 		    // Add the growthline path
 			svg.append("path")
 			   	.attr("class", "line")
-			   	.style("stroke", "green")
+			   	.style("stroke", "blue")
 			   	.attr("d", growthline(data));
+
 
 		    // Add the X Axis
 		    svg.append("g")
@@ -106,23 +108,35 @@
 		        .attr("transform", "translate(0," + height + ")")
 		        .call(xAxis);
 
+
 		    // Add the Y Axis (left)
 		    svg.append("g")
 		        .attr("class", "y axis")
 		        .call(yAxis);
 
+			svg.append("text")
+            	.attr("text-anchor", "middle")  
+            	.attr("transform", "translate(" + (0-margin.left/1.5) +","+(height/2)+")rotate(-90)")  
+            	.text("Exchange Rate");
+
+
 		    // Add the second Y Axis (right)
 		 	svg.append("g")
 				.attr("class", "y axis")
-				.attr("transform", "translate(" + width  + " ,0)")
+				.attr("transform", "translate(" + (width - margin.right/100)  + " ,0)") //hard-coded axis 2 position
 				.style("fill", "red")		        
 				.call(yAxis2);
+
+			svg.append("text")
+            	.attr("text-anchor", "middle")  
+            	.attr("transform", "translate(" + (width + margin.right) +","+(height/2)+")rotate(-90)")  
+            	.text("Growth Rate");
 
 
 		   var brexit = parseDate("23/06/2016");
 
 		   svg.append("line")
-			    .style("stroke-width", 1)
+			    .style("stroke-width", 1.5)
 				.style("stroke", "red")
 			    .attr("x1", x(brexit))
 			    .attr("y1", 0)
@@ -140,7 +154,6 @@
 		        .text(text);
 
 		});
-	
 
 	</script>
 </body>
