@@ -34,7 +34,7 @@ nv.addGraph(function() {
 
     data = setUpDataEar();
 
-    d3.select('#chart1').append('svg')
+    d3.select('#chartEar').append('svg')
         .datum(data)
         .call(chart);
 
@@ -70,7 +70,7 @@ nv.addGraph(function() {
 
     data = setUpDataExp();
 
-    d3.select('#chart2').append('svg')
+    d3.select('#chartExp').append('svg')
         .datum(data)
         .call(chart);
 
