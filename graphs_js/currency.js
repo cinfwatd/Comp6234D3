@@ -1,20 +1,34 @@
-var margin = {top: 30, right: 70, bottom: 30, left: 70},
+//set margin 
+var margin = {top: 30, right: 70, bottom: 130, left: 70},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 600 - margin.top - margin.bottom;
 
-// Parse the date / time
+// Parse date / time
 var parseDate = d3.time.format("%d/%m/%Y").parse;
 
-// Set the ranges
+// Define the ranges
+var quarter = function(date, i){
+        var date2 = new Date();
+        var yearly = date2.getFullYear()
+        date2.setMonth(date.getMonth() +1);
+        q = Math.ceil(( date2.getMonth()) / 3 );
+        if (i < 3) { 
+            var yearly1 = Math.ceil(yearly - 2);
+            return "Q" + q + "/" +  yearly1;
+        } else { 
+            var yearly2 = Math.ceil(yearly - 1);
+            return "Q" + q + "/" +  yearly2;
+        }         
+}
+
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 var y2 = d3.scale.linear().range([height, 0]);
 
-
 // Define the axes
 var xAxis = d3.svg.axis()
 	.scale(x)
-    .orient("bottom");
+    .orient("bottom").tickFormat(quarter);
 
 var yAxis = d3.svg.axis()
 	.scale(y)
@@ -22,7 +36,7 @@ var yAxis = d3.svg.axis()
 
 var yAxis2 = d3.svg.axis()
     .scale(y2)
-    .orient("right").ticks(8);
+    .orient("right").ticks(10);
 
 // Define the line
 var valueline = d3.svg.line()
@@ -32,19 +46,8 @@ var valueline = d3.svg.line()
 	var growthline = d3.svg.line()
 	.x(function(d) { return x(d.date); })
 	.y(function(d) { return y2(d.growth); }); 
-    
-// Adds the svg canvas
-var svg = d3.select(".currency")
-    .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
 
-    .append("g")
-        .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
-
-var parseDate = d3.time.format('%d/%m/%Y').parse;
-
+// Add gridlines 
 function make_x_axis() {        
     return d3.svg.axis()
         .scale(x)
@@ -59,7 +62,18 @@ function make_y_axis() {
         .ticks(0)
 }
 
-d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){ 
+// Adds the svg canvas
+var svg = d3.select(".currency")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+
+d3.csv("../test-jas/Cur_Data_Clean_short.csv", function(error, data){ 
 	data.forEach(function(d){ 
 			d.date = parseDate(d['date']); 
 			d.exchange = +d['GBPtoUSD'];
@@ -69,8 +83,8 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
 	// Scale the range of the data
 
 	x.domain(d3.extent(data, function(d) { return d.date; }));
-	y.domain([0 , d3.max(data, function(d) { return Math.max(d.exchange);})]);
-	y2.domain([-0.08, 0.08]); //hard coded second y-axis	domain
+	y.domain([1, d3.max(data, function(d) { return Math.max(d.exchange);})]);
+	y2.domain([-0.1, 0.25]); //hard coded second y-axis	domain
 
 
     // Add the valueline path.
@@ -88,9 +102,8 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
     // Add the X Axis
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
+        .attr("transform", "translate(0," + 1.01*height + ")")
+        .call(xAxis)
 
     // Add the Y Axis (left)
     svg.append("g")
@@ -100,7 +113,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
 	svg.append("text")
     	.attr("text-anchor", "middle")  
     	.attr("transform", "translate(" + (0-margin.left/1.5) +","+(height/2)+")rotate(-90)")  
-    	.text("Exchange Rate");
+    	.text("Value of £1 in Dollars");
 
 
     // Add the second Y Axis (right)
@@ -115,37 +128,6 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
     	.attr("transform", "translate(" + (width + (margin.right)) +","+(height/2)+")rotate(-90)")  
     	.text("Growth Rate");
 
-    // Add legend
-
-//           	var legend = svg.append("g")
-//	 			.attr("class", "legend")
-//	 			.attr("x", w - 65)
-//	 			.attr("y", 25)
-//	 			.attr("height", 100)
-//	 			.attr("width", 100);
-//
-//			legend.selectAll('g').data(dataset)
-//    		  	.enter()
-//    		  	.append('g')
-//    		  	.each(function(d, i) {
-//    		  	  var g = d3.select(this);
-//    		  	  g.append("rect")
-//    		  	    .attr("x", w - 65)
-//    		  	    .attr("y", i*25)
-//    		  	    .attr("width", 10)
-//    		  	    .attr("height", 10)
-//    		  	    .style("fill", color_hash[String(i)][1]);
-//    		  	  
-//    		  	  g.append("text")
-//    		  	    .attr("x", w - 50)
-//    		  	    .attr("y", i * 25 + 8)
-//    		  	    .attr("height",30)
-//    		  	    .attr("width",100)
-//    		  	    .style("fill", color_hash[String(i)][1])
-//    		  	    .text(color_hash[String(i)][0]);
-//			
-//    		  });
-//
 
     //Add gridlines
     svg.append("g")         
@@ -163,10 +145,11 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
             .tickFormat("")
         )
 
+    // Add brexit indicator line
    var brexit = parseDate("23/06/2016");
 
    svg.append("line")
-	    .style("stroke-width", 0.5)
+	    .style("stroke-width", 1.5)
 		.style("stroke", "red")
 	    .attr("x1", x(brexit))
 	    .attr("y1", 0)
@@ -177,7 +160,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
 
    d3.select("svg")
         .append("text")
-        .style("stroke", "black")
+        //.style("stroke", "black")
         .attr("x", x(brexit) + margin.left)
         .attr("y", margin.top-15)
         .attr("text-anchor", "middle")
