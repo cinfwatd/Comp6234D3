@@ -1,13 +1,13 @@
-body {font: 13px Arial;} 
-
-path { 
+/*body {font: 13px Arial;} 
+*/
+.currency path { 
     stroke: black;
     stroke-width: 1;
     fill: none;
 	}
 
-.axis path,
-.axis line {
+.currency .axis path,
+.currency .axis line {
     fill: none;
     stroke: grey;
     stroke-width: 1;
