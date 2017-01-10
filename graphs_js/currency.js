@@ -1,4 +1,4 @@
-var margin = {top: 30, right: 50, bottom: 30, left: 50},
+var margin = {top: 30, right: 70, bottom: 30, left: 70},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -45,6 +45,20 @@ var svg = d3.select(".currency")
 
 var parseDate = d3.time.format('%d/%m/%Y').parse;
 
+function make_x_axis() {        
+    return d3.svg.axis()
+        .scale(x)
+         .orient("bottom")
+         .ticks(8)
+}
+
+function make_y_axis() {        
+    return d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(0)
+}
+
 d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){ 
 	data.forEach(function(d){ 
 			d.date = parseDate(d['date']); 
@@ -67,7 +81,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
     // Add the growthline path
 	svg.append("path")
 	   	.attr("class", "line")
-	   	.style("stroke", "#706466")
+	   	.style("stroke", "#002db3")
 	   	.attr("d", growthline(data));
 
 
@@ -93,7 +107,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
  	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(" + (width - margin.right/100)  + " ,0)") //hard-coded axis 2 position
-		.style("fill", "#706466")		        
+		.style("fill","#002db3")		        
 		.call(yAxis2);
 
 	svg.append("text")
@@ -133,10 +147,26 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
 //    		  });
 //
 
+    //Add gridlines
+    svg.append("g")         
+        .attr("class", "grid")
+        .attr("transform", "translate(0," + height + ")")
+        .call(make_x_axis()
+            .tickSize(-height, 0, 0)
+            .tickFormat("")
+        )
+
+    svg.append("g")         
+        .attr("class", "grid")
+        .call(make_y_axis()
+            .tickSize(-width, 0, 0)
+            .tickFormat("")
+        )
+
    var brexit = parseDate("23/06/2016");
 
    svg.append("line")
-	    .style("stroke-width", 1.5)
+	    .style("stroke-width", 0.5)
 		.style("stroke", "red")
 	    .attr("x1", x(brexit))
 	    .attr("y1", 0)
@@ -149,7 +179,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
         .append("text")
         .style("stroke", "black")
         .attr("x", x(brexit) + margin.left)
-        .attr("y", margin.top-10)
+        .attr("y", margin.top-15)
         .attr("text-anchor", "middle")
         .text(text);
 
