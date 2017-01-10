@@ -1,6 +1,6 @@
 var margin = {top: 30, right: 50, bottom: 30, left: 50},
-width = 1250 - margin.left - margin.right,
-height = 750 - margin.top - margin.bottom;
+    width = 1250 - margin.left - margin.right,
+    height = 750 - margin.top - margin.bottom;
 
 // Parse the date / time
 var parseDate = d3.time.format("%d/%m/%Y").parse;
@@ -34,7 +34,7 @@ var valueline = d3.svg.line()
 	.y(function(d) { return y2(d.growth); }); 
     
 // Adds the svg canvas
-var svg = d3.select("body")
+var svg = d3.select(".currency")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -45,7 +45,7 @@ var svg = d3.select("body")
 
 var parseDate = d3.time.format('%d/%m/%Y').parse;
 
-d3.csv("data/Cur_Data_Clean.csv", function(error, data){ 
+d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){ 
 	data.forEach(function(d){ 
 			d.date = parseDate(d['date']); 
 			d.exchange = +d['GBPtoUSD'];
