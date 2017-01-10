@@ -93,12 +93,12 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
  	svg.append("g")
 		.attr("class", "y axis")
 		.attr("transform", "translate(" + (width - margin.right/100)  + " ,0)") //hard-coded axis 2 position
-		.style("fill", "red")		        
+		.style("fill", "blue")		        
 		.call(yAxis2);
 
 	svg.append("text")
     	.attr("text-anchor", "middle")  
-    	.attr("transform", "translate(" + (width + margin.right) +","+(height/2)+")rotate(-90)")  
+    	.attr("transform", "translate(" + (width + (margin.right/2)) +","+(height/2)+")rotate(-90)")  
     	.text("Growth Rate");
 
     // Add legend
