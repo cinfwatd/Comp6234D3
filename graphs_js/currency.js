@@ -98,7 +98,7 @@ d3.csv("../test-jas/Cur_Data_Clean.csv", function(error, data){
 
 	svg.append("text")
     	.attr("text-anchor", "middle")  
-    	.attr("transform", "translate(" + (width + (margin.right/2)) +","+(height/2)+")rotate(-90)")  
+    	.attr("transform", "translate(" + (width + (margin.right*2)) +","+(height/2)+")rotate(-90)")  
     	.text("Growth Rate");
 
     // Add legend
