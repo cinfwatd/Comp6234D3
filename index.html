@@ -109,59 +109,84 @@
                     <div class="section-title">
                         <h2>Import & Export</h2>
                         <hr>
-						<!-- Subtitle one: Imported Commodities -->
-						<h3>Subtitle One</h3>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-						<div class="space"></div>
 						
-						<!-- Chart headers -->
-						<div class='container' align="center" >
-						<h3 style ="float:left; display: inline-block; padding-left:12em ">UK Exports By Commodity</h3> 
-						<h3 style ="float:middle; display: inline-block; padding-left:12em">UK Imports By Commodity</h3>
-						</div>
-						
-						<div class='container' >
-							<svg class="exportsByCommodityBar" style ="float:left; display: inline-block;"></svg>
-							<svg class="importsByCommodityBar" style ="float:left; display: inline-block;"></svg>
-						</div>
-						<!-- Exports by Commodity Js ref-->
-						<script type="text/javascript" src="graphs_js/exportsByCommodityBar.js"></script>
-						<link rel="stylesheet" type="text/css"  href="graph_css/exportsByCommodityBar.css">
-						<!-- Imports by Commodity Js ref-->
-						<script type="text/javascript" src="graphs_js/importsByCommodityBar.js"></script>
-						<link rel="stylesheet" type="text/css"  href="graph_css/importsByCommodityBar.css">
-						<!-- Subtitle one ends -->
-						
-						
-						<!-- Subtitle two: By Country Import/Exports -->
-						<div class="space"></div>
-						<h3>Subtitle Two</h3>
+						<!-- Subtitle one: EU&Non-EU Imports & Exports -->
 						<input type="radio" name="d" id="import" checked><label> Import </label>
 						<input type="radio" name="d"  id="hideBack"><label> Export </label>
-						<div class="space"></div>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						
+						<div id ="importsDiv" align="center">
+							<br><br>
+							<p align="justify">According to October 2016 ONS data, roughly <strong>44%</strong> of The UK imports are from non-European Union countries. 
+							Even though this ratio was <strong>45%</strong> last year we can not speak of a trend because of the monthly ups and downs. </p>
+							<br>
+							<h4>Imports from Eu & non-EU Countries</h4>
+							<svg id="importsArea" style="width:900px; height:400px;"></svg>
+							<script type="text/javascript" src="graphs_js/importsArea.js"></script>
+						</div>
+						<div id ="exportsDiv" align="center">
+							<br><br>
+							<p align="justify">According to October 2016 ONS data, roughly <strong>54%</strong> of The UK exports are to non-European Union countries.
+							The biggest item which UK exports is the services, leaving The European Union might have a huge impact on service exports because The EU related work force
+							such as banks are probably going to relocate their workers to a EU city. Even though nothing is clear right now, the process is going to speed up with the 
+							negotiations in near future.</p>
+							<br>
+							<h4>Exports from Eu & non-EU Countries</h4>
+							<br>
+							<svg id="exportsArea" style="width:900px; height:400px;"></svg>
+							<script type="text/javascript" src="graphs_js/exportsArea.js"></script>
+						</div>				
+						<!-- Subtitle two ends -->
+						<br><br>
+						<!-- Subtitle two: By Country Import/Exports -->
+						
 						<!-- Map, Imports by Country -->
 						<script src="http://d3js.org/topojson.v1.min.js"></script>
 						<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-						
-						
-						<h3>Chart Header For Map</h3>
-						<div id="exportMap" style="position: relative; width: 850px; height: 500px max-height: px;"></div>
-						<div id="importMap" style="position: relative; width: 850px; height: 500px max-height: px;"></div>
-						
+						<div id="exportMap" style="position: relative; width: 960px; height: 500px max-height: px;">
+							<h4>UK Exports By Countries having >%1 of Total Exports </h4>
+							<br>
+							<p align="justify">
+							Unlike imports, <strong>United States</strong> is at the top of The UK's export list with 47 Billion £ in 2015. That is 16% of all exported products.
+							Products exported to United States <span style="color:green">increased 21%</span> between 2014 and 2015, putting it at the top the exported list with the sum of exports to both Germany and France.
+							After The US comes <strong>China</strong> as the second biggest non-EU importer of The UK products with 13 Billion £. 
+							In contrast to The US, exports to China <span style="color:purple">reduced by 16%</span>  between 2014 and 2015.
+							
+							<p align="justify">
+							Then, at the EU side; <strong>Germany</strong>, <strong>France</strong> and <strong>France</strong> are at the top of the list with 30, 18 and 17 Billion £.
+							One big change between 2014 and 2015 is that exports to Netherlands have <span style="color:purple">dropped by 24%</span>.</p>
+						</div>
+						<div id="importMap" style="position: relative; width: 960px; height: 500px max-height: px;">
+							<h4>UK Imports By Country having >%1 of Total Imports </h4>
+							<br>
+							<p align="justify">
+							Last year, <strong>China</strong> is at the top of the list of non-EU imports with 37 Billion £.
+							After <strong>China</strong> there is <strong>United States</strong> with 33.5 Billion £.
+							One interesting fact about <strong>United States</strong> is that between 2014 and 2015 the amount of imports from US <span style="color:green">increased by 14%</span>.
+							Also, Imports from <strong>China</strong> and <strong>United States</strong> together make up for more than half of all non-EU imports.</p>
+							
+							<p align="justify">
+							On the other hand, at the EU side; <strong>Germany</strong>, <strong>Netherlands</strong> and <strong>France</strong> are at the top of the list with 61, 31 and 24 Billion £.
+							Even though there were not many collosal changes on EU imports, the change of Norway's contribution on the list is undisputable. Imports from Norway  <span style="color:purple">reduced by 30%</span> in a single year.
+							One of the main reasons behind that is the declining trend of oil and petroleum which The UK mostly imports from Norway.</p>
+						</div>
+						<!-- Sources -->
 						<script src="graphs_js/importMap.js"></script>
 						<script src="graphs_js/exportMap.js"></script>
-						
-						<!-- Import Export visibility css -->
+						<!-- Subtitle two ends -->
+						<!-- Import Export visibility -->
 						<style>
 						.hoverinfo { fill: black; font: 18px sans-serif; border-style: solid;} 
 						#import:not(:checked) ~ #exportMap{visibility: visible; display:block; } 
 						#import:not(:checked) ~ #importMap{visibility: hidden; display:none;}
+						#import:not(:checked) ~ #exportsDiv{visibility: visible; display:block; } 
+						#import:not(:checked) ~ #importsDiv{visibility: hidden; display:none;}
+						
 						#import:checked ~ #exportMap{visibility: hidden; display:none;} 
 						#import:checked ~ #importMap{visibility: visible; display:block;}
+						#import:checked ~ #exportsDiv{visibility: hidden; display:none; } 
+						#import:checked ~ #importsDiv{visibility: visible; display:block;}
 						</style>
-						<!-- Subtitle two ends -->
-						
+						<!-- Visibility code ends -->
                     </div>
             </div>
 
