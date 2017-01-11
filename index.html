@@ -72,16 +72,17 @@
 			<div class="section-title">
                         <h2>Aftermath of Brexit</h2>
                         <hr>
-						<p>A comprehensive analysis of Brexit aftermath on financial sector with statistical data</p>
+						<br>
+						<p>A comprehensive analysis of Brexit aftermath on financial sector with statistical data taken from The United Kingdom Office for National Statistics consisting of four parts: <span style="color:#bc0f0f">currency</span>, <span style="color:#bc0f0f">trade</span>, <span style="color:#bc0f0f">tourism</span> and <span style="color:#bc0f0f">gdp</span>.</p>
                     
             </div>
             </div>
-			
+			<a href="#currency" class="down-btn page-scroll">
+                <span class="fa fa-angle-down"></span>
+            </a>
         </div>
     </div>
-
     <!-- Currency Section -->
-    
     <div id="currency">
         <div class="container text-center">
             <div class="row">
@@ -92,16 +93,15 @@
                         <p> 
                         The line chart illustrates Pound to Dollar Exchange Rate and Growth Rate from Quarter 1 of 2015 to Quarter 4 of 2016. The day after Brexit referendum on 24th of June, Pound suffered the greatest depreciation against Dollar in five years with a dramatic -7.9% plunge. By the end of October, Pound against Dollar arrived at its lowest point in five years where the pound was worth $1.21, compared with $1.47 pre-referendum. </p>
                         <div class ="space"></div>
-                        
                     <div class ="currency"></div>
                 </div>
             </div>
+			<a href="#importexport" class="down-btn page-scroll">
+                <span class="fa fa-angle-down"></span>
+            </a>
 			<div class="space"></div>
-			
-            
         </div>
     </div>
-
     <!-- Import & Export Section -->
     <div id="importexport">
         <div class="container text-center">
@@ -109,26 +109,25 @@
                     <div class="section-title">
                         <h2>Import & Export</h2>
                         <hr>
-						
 						<!-- Subtitle one: EU&Non-EU Imports & Exports -->
 						<input type="radio" name="d" id="import" checked><label> Import </label>
 						<input type="radio" name="d"  id="hideBack"><label> Export </label>
-						
 						<div id ="importsDiv" align="center">
-							<br><br>
+							<br><br><!-- Import Area Chart story -->
 							<p align="justify">According to October 2016 ONS data, roughly <strong>44%</strong> of The UK imports are from non-European Union countries. 
-							Even though this ratio was <strong>45%</strong> last year we can not speak of a trend because of the monthly ups and downs. </p>
+							Even though this ratio was <strong>45%</strong> last year we can not speak of a trend because of the monthly ups and downs. 
+							So far, the referendum  did not have any effect on the imports.</p>
 							<br>
 							<h4>Imports from Eu & non-EU Countries</h4>
 							<svg id="importsArea" style="width:900px; height:400px;"></svg>
 							<script type="text/javascript" src="graphs_js/importsArea.js"></script>
 						</div>
 						<div id ="exportsDiv" align="center">
-							<br><br>
+							<br><br><!-- Export Area Chart story -->
 							<p align="justify">According to October 2016 ONS data, roughly <strong>54%</strong> of The UK exports are to non-European Union countries.
 							The biggest item which UK exports is the services, leaving The European Union might have a huge impact on service exports because The EU related work force
 							such as banks are probably going to relocate their workers to a EU city. Even though nothing is clear right now, the process is going to speed up with the 
-							negotiations in near future.</p>
+							negotiations in near future. It looks like the referendum did not have any effects on exports just yet.</p>
 							<br>
 							<h4>Exports from Eu & non-EU Countries</h4>
 							<br>
@@ -138,19 +137,17 @@
 						<!-- Subtitle two ends -->
 						<br><br>
 						<!-- Subtitle two: By Country Import/Exports -->
-						
-						<!-- Map, Imports by Country -->
+						<!-- Map, Import Exporrts by Country -->
 						<script src="http://d3js.org/topojson.v1.min.js"></script>
 						<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
 						<div id="exportMap" style="position: relative; width: 960px; height: 500px max-height: px;">
 							<h4>UK Exports By Countries having >%1 of Total Exports </h4>
 							<br>
-							<p align="justify">
+							<p align="justify"><!-- Export Map Story-->
 							Unlike imports, <strong>United States</strong> is at the top of The UK's export list with 47 Billion £ in 2015. That is 16% of all exported products.
 							Products exported to United States <span style="color:green">increased 21%</span> between 2014 and 2015, putting it at the top the exported list with the sum of exports to both Germany and France.
 							After The US comes <strong>China</strong> as the second biggest non-EU importer of The UK products with 13 Billion £. 
 							In contrast to The US, exports to China <span style="color:purple">reduced by 16%</span>  between 2014 and 2015.
-							
 							<p align="justify">
 							Then, at the EU side; <strong>Germany</strong>, <strong>France</strong> and <strong>France</strong> are at the top of the list with 30, 18 and 17 Billion £.
 							One big change between 2014 and 2015 is that exports to Netherlands have <span style="color:purple">dropped by 24%</span>.</p>
@@ -158,7 +155,7 @@
 						<div id="importMap" style="position: relative; width: 960px; height: 500px max-height: px;">
 							<h4>UK Imports By Country having >%1 of Total Imports </h4>
 							<br>
-							<p align="justify">
+							<p align="justify"><!-- Import Map Story -->
 							Last year, <strong>China</strong> is at the top of the list of non-EU imports with 37 Billion £.
 							After <strong>China</strong> there is <strong>United States</strong> with 33.5 Billion £.
 							One interesting fact about <strong>United States</strong> is that between 2014 and 2015 the amount of imports from US <span style="color:green">increased by 14%</span>.
@@ -189,21 +186,17 @@
 						<!-- Visibility code ends -->
                     </div>
             </div>
-
-            <div class="space"></div>
-			<div class="space"></div>
-			<!--
-            <a href="#gdp" class="down-btn page-scroll">
+			<a href="#gdp" class="down-btn page-scroll">
                 <span class="fa fa-angle-down"></span>
-            </a>-->
+            </a>
+            <div class="space"></div>
         </div>
     </div>
 
     <!-- GDP Section -->
     <div id="gdp">
-        <div class="container">
+        <div class="container text-center">
             <div class="row text-center">
-                <!--<div class="col-md-8 col-md-offset-2">-->
                     <div class="section-title">
                         <h2>Gross Domestic Product (GDP)</h2>
                         <hr>
@@ -219,7 +212,6 @@
                     <div id="gdp1" class='with-3d-shadow with-transitions' style="width: 1000px; height: 500px">
                         <svg></svg>
                     </div>
-                <!--</div>-->
                 <div class="section-title">
                     <h3><strong>GDP output components growth (quarter-on-quarter indexed from Quarter 1 (Jan to Mar) 2008 = 100</strong></h3>
                     <p>The growth of the GDP has been in line with recent trends in the world economy despite the Brexit
@@ -239,14 +231,12 @@
                 <div id="gdp3" class="with-3d-shadow with-transitions" style="width: 1000px; height: 500px"></div>
             </div>
             <div class="space"></div>
+			<a href="#travel" class="down-btn page-scroll">
+                <span class="fa fa-angle-down"></span>
+            </a>
         </div>
         <div class="space"></div>
-        <div class="space"></div>
-        <div class="space"></div>
-
     </div>
-
-    
     <!-- Travel -->
     <div id="travel">
         <div class="container">
@@ -272,13 +262,9 @@
                 </style>
             </div>
            <div class="space"></div>
-           <div class="space"></div>
-		   <div class="space"></div>
-		   <div class="space"></div>
 		   <div class="space"></div>
         </div>
     </div>
-	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
@@ -286,17 +272,13 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/SmoothScroll.js"></script>
     <script type="text/javascript" src="js/jasny-bootstrap.min.js"></script>
-
     <script src="js/owl.carousel.js"></script>
     <script src="js/typed.js"></script>
-
     <!-- Javascripts
     ================================================== -->
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="graphs_js/gdp.js"></script>
     <script src="graphs_js/travel.js"></script>
     <script type="text/javascript" src="graphs_js/currency.js"></script>
-
-
   </body>
 </html>

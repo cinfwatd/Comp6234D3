@@ -35,7 +35,6 @@ nv.addGraph(function() {
 				})
 			}, 0)
 		});
-
 	nv.utils.windowResize(chart.update);
 	return chart;
 });
