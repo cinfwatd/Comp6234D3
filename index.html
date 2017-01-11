@@ -55,8 +55,8 @@
             <li><a href="#home" class="page-scroll">Home</a></li>
             <li><a href="#currency" class="page-scroll">Currency</a></li>
             <li><a href="#importexport" class="page-scroll">Import & Export</a></li>
-            <li><a href="#gdp" class="page-scroll">GDP</a></li>
             <li><a href="#travel" class="page-scroll">Overseas travel & tourism</a></li>
+			<li><a href="#gdp" class="page-scroll">GDP</a></li>
         </ul><!--- End Menu -->
     </div> <!--- End Off Canvas Side Menu -->
 
@@ -67,15 +67,13 @@
             <nav id="menu" data-toggle="offcanvas" data-target=".navmenu">
                 <span class="fa fa-bars"></span>
             </nav>
-
             <div class="content">
-			<div class="section-title">
-                        <h2>Aftermath of Brexit</h2>
-                        <hr>
-						<br>
-						<p>A comprehensive analysis of Brexit aftermath on financial sector with statistical data taken from The United Kingdom Office for National Statistics consisting of four parts: <span style="color:#bc0f0f">currency</span>, <span style="color:#bc0f0f">trade</span>, <span style="color:#bc0f0f">tourism</span> and <span style="color:#bc0f0f">gdp</span>.</p>
-                    
-            </div>
+				<div class="section-title">
+					<h2>Aftermath of Brexit</h2>
+					<hr>
+					<br>
+					<p>A comprehensive analysis of Brexit aftermath on financial sector with statistical data taken from The United Kingdom Office for National Statistics consisting of four parts: <span style="color:#bc0f0f">currency</span>, <span style="color:#bc0f0f">trade</span>, <span style="color:#bc0f0f">tourism</span> and <span style="color:#bc0f0f">gdp</span>.</p>
+				</div>
             </div>
 			<a href="#currency" class="down-btn page-scroll">
                 <span class="fa fa-angle-down"></span>
@@ -90,10 +88,9 @@
                         <h2>Currency</h2>
                         <hr>
                         <h3> Pound against the Dollar </h3> 
-                        <p> 
-                        The line chart illustrates Pound to Dollar Exchange Rate and Growth Rate from Quarter 1 of 2015 to Quarter 4 of 2016. The day after Brexit referendum on 24th of June, Pound suffered the greatest depreciation against Dollar in five years with a dramatic -7.9% plunge. By the end of October, Pound against Dollar arrived at its lowest point in five years where the pound was worth $1.21, compared with $1.47 pre-referendum. </p>
+                        <p  align="justify"> The line chart illustrates Pound to Dollar Exchange Rate and Growth Rate from Quarter 1 of 2015 to Quarter 4 of 2016. The day after Brexit referendum on 24th of June, Pound suffered the greatest depreciation against Dollar in five years with a dramatic -7.9% plunge. By the end of October, Pound against Dollar arrived at its lowest point in five years where the pound was worth $1.21, compared with $1.47 pre-referendum. </p>
                         <div class ="space"></div>
-                    <div class ="currency"></div>
+						<div class ="currency"></div>
                 </div>
             </div>
 			<a href="#importexport" class="down-btn page-scroll">
@@ -110,8 +107,8 @@
                         <h2>Import & Export</h2>
                         <hr>
 						<!-- Subtitle one: EU&Non-EU Imports & Exports -->
-						<input type="radio" name="d" id="import" checked><label> Import </label>
-						<input type="radio" name="d"  id="hideBack"><label> Export </label>
+						<input type="radio" name="d" id="import" checked><label for="import"> Import </label>
+						<input type="radio" name="d"  id="hideBack"><label for="hideBack"> Export </label>
 						<div id ="importsDiv" align="center">
 							<br><br><!-- Import Area Chart story -->
 							<p align="justify">According to October 2016 ONS data, roughly <strong>44%</strong> of The UK imports are from non-European Union countries. 
@@ -170,7 +167,7 @@
 						<script src="graphs_js/importMap.js"></script>
 						<script src="graphs_js/exportMap.js"></script>
 						<!-- Subtitle two ends -->
-						<!-- Import Export visibility -->
+						<!-- Import Export visibility stuff-->
 						<style>
 						.hoverinfo { fill: black; font: 18px sans-serif; border-style: solid;} 
 						#import:not(:checked) ~ #exportMap{visibility: visible; display:block; } 
@@ -186,14 +183,43 @@
 						<!-- Visibility code ends -->
                     </div>
             </div>
-			<a href="#gdp" class="down-btn page-scroll">
+			<a href="#travel" class="down-btn page-scroll">
                 <span class="fa fa-angle-down"></span>
             </a>
             <div class="space"></div>
         </div>
     </div>
-
-    <!-- GDP Section -->
+    <!-- Travel -->
+    <div id="travel">
+        <div class="container text-center">
+            <div class="row text-center">
+                <!-- <div class="col-md-8 col-md-offset-2"> -->
+                    <div class="section-title">
+                        <h2>Overseas travel and tourism</h2>
+                        <hr>
+                        <p align="justify">Two line charts (2014 to 2016) illustrate earnings made from overseas residents in the UK and expenditure abroad by UK residents by month. In 2016, spending by overseas residents in the UK was closely the same as the previous two years. Spending by UK residents overseas was also close to the trends of the previous two years. After the Brexit referendum on 23 June 2016, the impact of earnings in the UK and expenditure abroad was not obvious as shown in the two line charts below.</p>
+                        <div class="space"></div>
+                        <h3>Earnings in the UK by month</h3>
+                    </div>
+                <!-- </div> -->
+                <div id="chartEar"></div>
+                    <div class="section-title">
+                        <div class="space"></div>
+                        <h3>Expenditure abroad by month</h3>
+                    </div>
+                <div id="chartExp"></div>
+                <div class="space"></div>
+                <style>
+                    #chartEar, #chartExp {margin: 0px; padding: 0px; height: 500px; width: 1000px;}
+                </style>
+            </div>
+			<a href="#gdp" class="down-btn page-scroll">
+                <span class="fa fa-angle-down"></span>
+            </a>
+		   <div class="space"></div>
+        </div>
+    </div>
+	<!-- GDP Section -->
     <div id="gdp">
         <div class="container text-center">
             <div class="row text-center">
@@ -230,40 +256,8 @@
                 <div class="space"></div>
                 <div id="gdp3" class="with-3d-shadow with-transitions" style="width: 1000px; height: 500px"></div>
             </div>
-            <div class="space"></div>
-			<a href="#travel" class="down-btn page-scroll">
-                <span class="fa fa-angle-down"></span>
-            </a>
         </div>
         <div class="space"></div>
-    </div>
-    <!-- Travel -->
-    <div id="travel">
-        <div class="container">
-            <div class="row text-center">
-                <!-- <div class="col-md-8 col-md-offset-2"> -->
-                    <div class="section-title">
-                        <h2>Overseas travel and tourism</h2>
-                        <hr>
-                        <p>Two line charts (2014 to 2016) illustrate earnings made from overseas residents in the UK and expenditure abroad by UK residents by month. In 2016, spending by overseas residents in the UK was closely the same as the previous two years. Spending by UK residents overseas was also close to the trends of the previous two years. After the Brexit referendum on 23 June 2016, the impact of earnings in the UK and expenditure abroad was not obvious as shown in the two line charts below.</p>
-                        <div class="space"></div>
-                        <h3>Earnings in the UK by month</h3>
-                    </div>
-                <!-- </div> -->
-                <div id="chartEar"></div>
-                    <div class="section-title">
-                        <div class="space"></div>
-                        <h3>Expenditure abroad by month</h3>
-                    </div>
-                <div id="chartExp"></div>
-                <div class="space"></div>
-                <style>
-                    #chartEar, #chartExp {margin: 0px; padding: 0px; height: 500px; width: 1000px;}
-                </style>
-            </div>
-           <div class="space"></div>
-		   <div class="space"></div>
-        </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
