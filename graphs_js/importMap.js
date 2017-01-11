@@ -9,7 +9,7 @@ highlightFillColor: '#444444',
 borderColor: 'black',
 popupTemplate: function(geography, data) {
 	if (data === null){ return '<div class="hoverinfo">' + geography.properties.name }
-	else { return '<div class="hoverinfo">' +'Imported from '+ geography.properties.name + ': ' +  data.val + ' Billion ' }
+	else { return '<div class="hoverinfo">' +'Imported from '+ geography.properties.name + ': ' +  data.val + ' Billion £' }
 },
   highlightBorderWidth: 1
 },
