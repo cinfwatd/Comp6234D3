@@ -6,7 +6,7 @@
 var chart;
 var data;
 var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-var color_year = ["#706466","#68829E","#E1B16A","#d11f37"]
+var color_year = ["#706466","#68829E","#E1B16A","#325332"]
 
 nv.addGraph(function() {
     chart = nv.models.lineChart()
@@ -40,6 +40,33 @@ nv.addGraph(function() {
         .call(chart);
 
     nv.utils.windowResize(chart.update);
+
+    drawBrexitLine();
+
+    function drawBrexitLine(){
+        var svg = d3.select("#chartEar svg");
+        var height = parseInt(svg.style("height"), 10);
+        var width = parseInt(svg.style("width"), 10);
+        var margin = {top: 30, right: 0, bottom: 50, left: 0};
+        var xScale = chart.xAxis.scale();
+        var xValue = '5.72'; // Hard Code for 'Jun'
+        svg.append("line")
+            .attr("id","svgline")
+            .style("stroke", "#FF0000")
+            .attr("x1", xScale(xValue) + margin.left)
+            .attr("y1", margin.top)
+            .attr("x2", xScale(xValue) + margin.left)
+            .attr("y2", height - margin.bottom);
+        
+        var text = "Brexit (2016)"
+        d3.select("#chartEar svg")
+            .append("text")
+            .attr("id","svgtext")
+            .attr("x", xScale(xValue) + margin.left)
+            .attr("y", margin.top-10)
+            .attr("text-anchor", "middle")
+            .text(text);
+    }
 
     return chart;
 });
@@ -76,6 +103,33 @@ nv.addGraph(function() {
         .call(chart);
 
     nv.utils.windowResize(chart.update);
+
+    drawBrexitLine();
+
+    function drawBrexitLine(){
+        var svg = d3.select("#chartExp svg");
+        var height = parseInt(svg.style("height"), 10);
+        var width = parseInt(svg.style("width"), 10);
+        var margin = {top: 30, right: 0, bottom: 50, left: 0};
+        var xScale = chart.xAxis.scale();
+        var xValue = '5.72'; // Hard Code for 'Jun'
+        svg.append("line")
+            .attr("id","svgline")
+            .style("stroke", "#FF0000")
+            .attr("x1", xScale(xValue) + margin.left)
+            .attr("y1", margin.top)
+            .attr("x2", xScale(xValue) + margin.left)
+            .attr("y2", height - margin.bottom);
+        
+        var text = "Brexit (2016)"
+        d3.select("#chartExp svg")
+            .append("text")
+            .attr("id","svgtext")
+            .attr("x", xScale(xValue) + margin.left)
+            .attr("y", margin.top-10)
+            .attr("text-anchor", "middle")
+            .text(text);
+    }
 
     return chart;
 });
@@ -148,5 +202,30 @@ function setUpDataExp() {
             color: color_year[3]
         }
     ];
+}
+
+function drawBrexitLine(chart){
+    d3.selectAll("#svgline").remove();
+    d3.selectAll("#svgtext").remove();
+    var margin = {top: 0, right: 0, bottom: 0, left: 0};
+    var xScale = chart.xAxis.scale();
+    var xValue = 'Jun';
+    svg.append("line")
+        .attr("id","svgline")
+        .style("stroke", "#000000")
+        .attr("x1", xScale(xValue) + margin.left)
+        .attr("y1", margin.top)
+        .attr("x2", xScale(xValue) + margin.left)
+        .attr("y2", height - margin.bottom);
+    
+    var text = "Brexit"
+    d3.select("#chart1 svg")
+        .append("text")
+        .attr("id","svgtext")
+        .style("stroke", "#34A853")
+        .attr("x", xScale(xValue) + margin.left)
+        .attr("y", margin.top-10)
+        .attr("text-anchor", "middle")
+        .text(text);
 }
 /*---Top---*/
