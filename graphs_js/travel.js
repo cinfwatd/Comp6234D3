@@ -203,29 +203,4 @@ function setUpDataExp() {
         }
     ];
 }
-
-function drawBrexitLine(chart){
-    d3.selectAll("#svgline").remove();
-    d3.selectAll("#svgtext").remove();
-    var margin = {top: 0, right: 0, bottom: 0, left: 0};
-    var xScale = chart.xAxis.scale();
-    var xValue = 'Jun';
-    svg.append("line")
-        .attr("id","svgline")
-        .style("stroke", "#000000")
-        .attr("x1", xScale(xValue) + margin.left)
-        .attr("y1", margin.top)
-        .attr("x2", xScale(xValue) + margin.left)
-        .attr("y2", height - margin.bottom);
-    
-    var text = "Brexit"
-    d3.select("#chart1 svg")
-        .append("text")
-        .attr("id","svgtext")
-        .style("stroke", "#34A853")
-        .attr("x", xScale(xValue) + margin.left)
-        .attr("y", margin.top-10)
-        .attr("text-anchor", "middle")
-        .text(text);
-}
 /*---Top---*/
