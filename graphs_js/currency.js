@@ -12,14 +12,20 @@ var quarter = function(date, i){
         var yearly = date2.getFullYear()
         date2.setMonth(date.getMonth() +1);
         q = Math.ceil(( date2.getMonth()) / 3 );
-        if (i < 3) { 
+        if (i === 0) { 
+            return "Q1/2015";
+        } else if (i < 4) { 
             var yearly1 = Math.ceil(yearly - 2);
             return "Q" + q + "/" +  yearly1;
         } else { 
             var yearly2 = Math.ceil(yearly - 1);
-            return "Q" + q + "/" +  yearly2;
-        }         
-}
+            if (i > 7) {
+                return "Q1/2017";
+            } else {
+                return "Q" + q + "/" +  yearly2;
+            }
+        }
+}         
 
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
@@ -102,7 +108,7 @@ d3.csv("../test-jas/Cur_Data_Clean_short.csv", function(error, data){
     // Add the X Axis
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + 1.01*height + ")")
+        .attr("transform", "translate(0," + 1.025*height + ")")
         .call(xAxis)
 
     // Add the Y Axis (left)
@@ -112,7 +118,7 @@ d3.csv("../test-jas/Cur_Data_Clean_short.csv", function(error, data){
 
 	svg.append("text")
     	.attr("text-anchor", "middle")  
-    	.attr("transform", "translate(" + (0-margin.left/1.5) +","+(height/2)+")rotate(-90)")  
+    	.attr("transform", "translate(" + (0-margin.left/1.3) +","+(height/2)+")rotate(-90)")  
     	.text("Value of £1 in Dollars");
 
 
@@ -154,7 +160,7 @@ d3.csv("../test-jas/Cur_Data_Clean_short.csv", function(error, data){
 	    .attr("x1", x(brexit))
 	    .attr("y1", 0)
 	    .attr("x2", x(brexit))
-	    .attr("y2", height);
+	    .attr("y2", height*1.025);
     
    var text = "Brexit"
 
